@@ -69,7 +69,7 @@ return baseclass.extend({
     const toggleBtn = document.getElementById("sidebar-toggle-btn");
     if (toggleBtn) {
       toggleBtn.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
+        if (this._isMobile()) {
           this.closeDrawer();
         } else {
           this.toggleCollapse();
@@ -96,6 +96,11 @@ return baseclass.extend({
         this._closeAccordionItem(item);
       });
     }
+  },
+
+  _isMobile() {
+    const bp = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint-md").trim();
+    return window.matchMedia(`(width < ${bp || "48rem"})`).matches;
   },
 
   /* ── Collapsed hover popover ── */

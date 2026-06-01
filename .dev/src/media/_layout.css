@@ -6,7 +6,7 @@
   .icon-expand { @apply hidden; }
 }
 
-@media (min-width: 769px) {
+@media (width >= theme(--breakpoint-md)) {
   html[data-sidebar-collapsed="true"] #sidebar {
     @apply w-12;
 
@@ -194,7 +194,7 @@
 
   svg, img { @apply h-5 w-5; }
 
-  @media (max-width: 768px) { @apply flex; }
+  @media (width < theme(--breakpoint-md)) { @apply flex; }
 }
 
 .topbar-breadcrumb {
@@ -331,10 +331,10 @@ span[data-indicator] {
 
   &.active { @apply pointer-events-auto opacity-100; }
 
-  @media (min-width: 769px) { @apply hidden; }
+  @media (width >= theme(--breakpoint-md)) { @apply hidden; }
 }
 
-@media (max-width: 768px) {
+@media (width < theme(--breakpoint-md)) {
   #sidebar {
     @apply fixed inset-y-0 left-0 z-40 w-[240px] -translate-x-full shadow-xl transition-transform duration-200;
     &[data-drawer-open="true"] { @apply translate-x-0; }
